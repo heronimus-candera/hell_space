@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjyobod4kspju"]
+
+[ext_resource type="Script" path="res://enemy/enemy.gd" id="1_a6a7u"]
+[ext_resource type="Texture2D" uid="uid://bw3dvvxdlreii" path="res://enemy/enemyPlane/bigEnemy.png" id="1_ossxj"]
+
+[node name="enemy" type="CharacterBody2D" groups=["enemies"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_a6a7u")
+nyawa = 10000
+jumlahPeluru = 8
+radius = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("1_ossxj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-5.33333, -11.8333, -14.0833, -3.75, -0.25, 9.91667, 13.8333, -4.08333, 5.58333, -11.75, -0.25, -9.91667)
+
+[node name="pemutar" type="Node2D" parent="."]
+
+[node name="spawner" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="pattern1" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="pattern2" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="pattern3" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="pattern4" type="Timer" parent="."]
+autostart = true
+
+[node name="mulai" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="spawner" to="." method="_on_spawner_timeout"]
+[connection signal="timeout" from="pattern1" to="." method="_on_pattern_1_timeout"]
+[connection signal="timeout" from="pattern2" to="." method="_on_pattern_2_timeout"]
+[connection signal="timeout" from="pattern3" to="." method="_on_pattern_3_timeout"]
+[connection signal="timeout" from="pattern4" to="." method="_on_pattern_4_timeout"]
+[connection signal="timeout" from="mulai" to="." method="_on_mulai_timeout"]

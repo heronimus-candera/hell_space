@@ -1,0 +1,20 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5575b75d2svm"]
+
+[ext_resource type="PackedScene" uid="uid://dhencv5bbtf35" path="res://game/game.tscn" id="1_nqcfo"]
+[ext_resource type="PackedScene" uid="uid://c0o3fu0nyr2tx" path="res://game/level/level3/wave_1.tscn" id="2_kmxpc"]
+[ext_resource type="PackedScene" uid="uid://o6ixdn2y3c7q" path="res://game/level/level3/wave_2.tscn" id="3_dubye"]
+[ext_resource type="PackedScene" uid="uid://bt52fwps4kpmg" path="res://game/level/level3/wave_3.tscn" id="4_hojju"]
+[ext_resource type="PackedScene" uid="uid://bt7rj81raj1p7" path="res://game/level/level3/wave_4.tscn" id="5_p5dbq"]
+[ext_resource type="PackedScene" uid="uid://td6bf3vti28y" path="res://game/level/level3/wave_5.tscn" id="6_csfks"]
+
+[node name="level3" instance=ExtResource("1_nqcfo")]
+waving = Array[PackedScene]([ExtResource("2_kmxpc"), ExtResource("3_dubye"), ExtResource("4_hojju"), ExtResource("5_p5dbq"), ExtResource("6_csfks")])
+
+[node name="Paused" parent="paused" index="0"]
+game = "res://game/level/level3/level_3.tscn"
+
+[node name="skor" parent="skor" index="0" node_paths=PackedStringArray("level")]
+level = NodePath("../..")
+
+[node name="gameOver" parent="gameOver" index="0"]
+pathFile = "res://game/level/level3/level_3.tscn"

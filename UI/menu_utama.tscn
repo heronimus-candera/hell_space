@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=3 uid="uid://dh0pq32jx0ww6"]
+
+[ext_resource type="Shader" path="res://shader/gdshader.gdshader" id="1_1rkbk"]
+[ext_resource type="Script" path="res://UI/menu_utama.gd" id="1_i16wy"]
+[ext_resource type="Texture2D" uid="uid://d1j6l2n7aj822" path="res://game/Stars.png" id="2_emi08"]
+[ext_resource type="Theme" uid="uid://mc1vfdpl1w2e" path="res://UI/theme.tres" id="3_bhsrd"]
+[ext_resource type="PackedScene" uid="uid://bgv21m1jnqwgb" path="res://UI/menu_pilih.tscn" id="4_wwtk1"]
+[ext_resource type="PackedScene" uid="uid://cxdmn7qlqxbio" path="res://UI/kredit.tscn" id="5_x51r2"]
+[ext_resource type="PackedScene" uid="uid://dakjyj4icmabs" path="res://UI/about.tscn" id="6_y7age"]
+[ext_resource type="PackedScene" uid="uid://bvu6tywg0w4el" path="res://UI/tutorial.tscn" id="8_4hy0c"]
+[ext_resource type="Texture2D" uid="uid://cpkpyufl0ph4m" path="res://UI/titlePlane.png" id="9_2l0ex"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ly7ks"]
+shader = ExtResource("1_1rkbk")
+shader_parameter/speed = 0.1
+
+[node name="menuUtama" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i16wy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ly7ks")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_emi08")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -185.5
+offset_right = 162.5
+offset_bottom = 185.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_bhsrd")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "hell
+space"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnMain" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "main"
+
+[node name="btnKredit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "kredit"
+
+[node name="btnAbout" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "about"
+
+[node name="btnTutorial" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "tutorial"
+
+[node name="btnKeluar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "keluar
+"
+
+[node name="menuPilih" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="menuPilih" parent="menuPilih" node_paths=PackedStringArray("menuUtama") instance=ExtResource("4_wwtk1")]
+menuUtama = NodePath("../../VBoxContainer")
+
+[node name="menuKredit" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="kredit" parent="menuKredit" node_paths=PackedStringArray("menuUtama") instance=ExtResource("5_x51r2")]
+menuUtama = NodePath("../../VBoxContainer")
+
+[node name="menuAbout" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="about" parent="menuAbout" node_paths=PackedStringArray("menuUtama") instance=ExtResource("6_y7age")]
+menuUtama = NodePath("../../VBoxContainer")
+
+[node name="menuTutorial" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="tutorial" parent="menuTutorial" node_paths=PackedStringArray("menuUtama") instance=ExtResource("8_4hy0c")]
+menuUtama = NodePath("../../VBoxContainer")
+
+[node name="TitlePlane" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, 532)
+scale = Vector2(6, 6)
+texture = ExtResource("9_2l0ex")
+
+[connection signal="pressed" from="VBoxContainer/btnMain" to="." method="_on_btn_main_pressed"]
+[connection signal="pressed" from="VBoxContainer/btnKredit" to="." method="_on_btn_kredit_pressed"]
+[connection signal="pressed" from="VBoxContainer/btnAbout" to="." method="_on_btn_about_pressed"]
+[connection signal="pressed" from="VBoxContainer/btnTutorial" to="." method="_on_btn_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/btnKeluar" to="." method="_on_btn_keluar_pressed"]

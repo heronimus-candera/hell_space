@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt8xm5q0uaa86"]
+
+[ext_resource type="Script" path="res://game/level/wave.gd" id="1_01q8j"]
+[ext_resource type="PackedScene" uid="uid://chlvqeq6c4toh" path="res://enemy/small_enemy.tscn" id="2_bpbxi"]
+
+[node name="wave1" type="Node2D"]
+script = ExtResource("1_01q8j")
+
+[node name="smallEnemy" parent="." instance=ExtResource("2_bpbxi")]
+position = Vector2(384, -152)
+nyawa = 30
+posisi = 96
+
+[node name="smallEnemy2" parent="." instance=ExtResource("2_bpbxi")]
+position = Vector2(256, -96)
+nyawa = 30
+posisi = 152
+
+[node name="smallEnemy3" parent="." instance=ExtResource("2_bpbxi")]
+position = Vector2(128, -40)
+nyawa = 30
+posisi = 208

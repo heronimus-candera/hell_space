@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://td6bf3vti28y"]
+
+[ext_resource type="Script" path="res://game/level/wave.gd" id="1_riln8"]
+[ext_resource type="PackedScene" uid="uid://bjyobod4kspju" path="res://enemy/enemy.tscn" id="2_n2ibj"]
+
+[node name="wave5" type="Node2D"]
+script = ExtResource("1_riln8")
+
+[node name="enemy" parent="." instance=ExtResource("2_n2ibj")]
+position = Vector2(248, -40)
+jumlahPeluru = 4
+posisi = 160

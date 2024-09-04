@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://chlvqeq6c4toh"]
+
+[ext_resource type="Texture2D" uid="uid://cmqospcpuucmc" path="res://enemy/enemyPlane/smallEnemy.png" id="1_0pcam"]
+[ext_resource type="Script" path="res://enemy/small_enemy.gd" id="1_dmfcg"]
+
+[node name="smallEnemy" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_dmfcg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 3.14159
+scale = Vector2(3, 3)
+texture = ExtResource("1_0pcam")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-40, -16, 40, -16, 40, -8, 0, 32, -40, -8)
+
+[node name="spawner" type="Timer" parent="."]
+wait_time = 0.8
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 48)
+
+[connection signal="timeout" from="spawner" to="." method="_on_spawner_timeout"]

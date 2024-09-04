@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhencv5bbtf35"]
+
+[ext_resource type="Script" path="res://game/game.gd" id="1_ds084"]
+[ext_resource type="PackedScene" uid="uid://cjx84oenn3ikj" path="res://player/player.tscn" id="1_vijl0"]
+[ext_resource type="Shader" path="res://shader/gdshader.gdshader" id="5_7w13n"]
+[ext_resource type="Texture2D" uid="uid://d1j6l2n7aj822" path="res://game/Stars.png" id="6_oedel"]
+[ext_resource type="PackedScene" uid="uid://d3lnisedugxj0" path="res://UI/nyawa.tscn" id="8_dmplv"]
+[ext_resource type="PackedScene" uid="uid://dyg4n0iatwdyj" path="res://UI/paused.tscn" id="8_iuda0"]
+[ext_resource type="PackedScene" uid="uid://dl15chfyd74t1" path="res://UI/time_label.tscn" id="9_0vfhm"]
+[ext_resource type="PackedScene" uid="uid://gikvq0s3hcw3" path="res://UI/skor.tscn" id="9_vg6pc"]
+[ext_resource type="Theme" uid="uid://mc1vfdpl1w2e" path="res://UI/theme.tres" id="10_d1ld3"]
+[ext_resource type="PackedScene" uid="uid://c315fjdidqhu3" path="res://UI/game_over.tscn" id="10_t6ycs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drimr"]
+shader = ExtResource("5_7w13n")
+shader_parameter/speed = 0.1
+
+[node name="game" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ds084")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 480.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_drimr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = 478.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_oedel")
+
+[node name="player" parent="." node_paths=PackedStringArray("lblNyawa") instance=ExtResource("1_vijl0")]
+position = Vector2(248, 545)
+lblNyawa = NodePath("../itemLevel/nyawa")
+
+[node name="paused" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Paused" parent="paused" node_paths=PackedStringArray("level") instance=ExtResource("8_iuda0")]
+level = NodePath("../..")
+
+[node name="itemLevel" type="CanvasLayer" parent="."]
+
+[node name="timeLabel" parent="itemLevel" instance=ExtResource("9_0vfhm")]
+offset_left = 21.0
+offset_top = 27.0
+offset_right = 189.0
+offset_bottom = 59.0
+
+[node name="btnPaused" type="Button" parent="itemLevel"]
+offset_left = 410.0
+offset_top = 25.0
+offset_right = 448.0
+offset_bottom = 64.0
+theme = ExtResource("10_d1ld3")
+text = "      "
+
+[node name="nyawa" parent="itemLevel" instance=ExtResource("8_dmplv")]
+offset_left = 61.0
+offset_top = 75.0
+offset_right = 88.0
+offset_bottom = 107.0
+
+[node name="skor" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="skor" parent="skor" instance=ExtResource("9_vg6pc")]
+
+[node name="gameOver" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="gameOver" parent="gameOver" instance=ExtResource("10_t6ycs")]
+
+[connection signal="pressed" from="itemLevel/btnPaused" to="." method="_on_button_pressed"]
