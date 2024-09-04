@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://di5h7qig2j5ys"]
+
+[ext_resource type="PackedScene" uid="uid://dhencv5bbtf35" path="res://game/game.tscn" id="1_c4fah"]
+[ext_resource type="PackedScene" uid="uid://c2txecd5n6oab" path="res://game/level/level2/wave_1.tscn" id="2_0k0ug"]
+[ext_resource type="PackedScene" uid="uid://ivkod2f2c34k" path="res://game/level/level2/wave_2.tscn" id="3_nfkn6"]
+[ext_resource type="PackedScene" uid="uid://c6ext8s0mthmg" path="res://game/level/level2/wave_3.tscn" id="4_5ury0"]
+[ext_resource type="PackedScene" uid="uid://dsgt33oibbrk6" path="res://game/level/level2/wave_4.tscn" id="5_63ohn"]
+
+[node name="level2" instance=ExtResource("1_c4fah")]
+waving = Array[PackedScene]([ExtResource("2_0k0ug"), ExtResource("3_nfkn6"), ExtResource("4_5ury0"), ExtResource("5_63ohn")])
+
+[node name="Paused" parent="paused" index="0"]
+game = "res://game/level/level2/level_2.tscn"
+
+[node name="skor" parent="skor" index="0" node_paths=PackedStringArray("level")]
+level = NodePath("../..")
+
+[node name="gameOver" parent="gameOver" index="0"]
+pathFile = "res://game/level/level2/level_2.tscn"

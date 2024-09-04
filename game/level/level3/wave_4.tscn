@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt7rj81raj1p7"]
+
+[ext_resource type="PackedScene" uid="uid://chlvqeq6c4toh" path="res://enemy/small_enemy.tscn" id="1_3hklq"]
+
+[node name="wave4" type="Node2D"]
+
+[node name="smallEnemy" parent="." instance=ExtResource("1_3hklq")]
+position = Vector2(136, -64)
+nyawa = 30
+posisi = 256
+
+[node name="smallEnemy2" parent="." instance=ExtResource("1_3hklq")]
+position = Vector2(328, -120)
+nyawa = 30
+posisi = 200
+
+[node name="smallEnemy3" parent="." instance=ExtResource("1_3hklq")]
+position = Vector2(424, -248)
+nyawa = 30
+posisi = 72
+
+[node name="smallEnemy4" parent="." instance=ExtResource("1_3hklq")]
+position = Vector2(208, -272)
+nyawa = 30
+posisi = 48
+
+[node name="smallEnemy5" parent="." instance=ExtResource("1_3hklq")]
+position = Vector2(64, -216)
+nyawa = 30
+posisi = 104

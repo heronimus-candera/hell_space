@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgv21m1jnqwgb"]
+
+[ext_resource type="Theme" uid="uid://mc1vfdpl1w2e" path="res://UI/theme.tres" id="1_kihg5"]
+[ext_resource type="Script" path="res://UI/kembali.gd" id="2_o7oi8"]
+[ext_resource type="Script" path="res://UI/btnLevel.gd" id="3_prmn8"]
+
+[node name="menuPilih" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kihg5")
+script = ExtResource("2_o7oi8")
+
+[node name="btnKembali" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 552.0
+offset_right = 164.0
+offset_bottom = 592.0
+scale = Vector2(1.27474, 1.17095)
+theme_override_font_sizes/font_size = 25
+text = " kembali"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.5
+offset_top = -241.0
+offset_right = 192.5
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "pilih level
+
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="btnLevel1" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+script = ExtResource("3_prmn8")
+level = "res://game/level/level1/level_1.tscn"
+
+[node name="btnLevel2" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+script = ExtResource("3_prmn8")
+level = "res://game/level/level2/level_2.tscn"
+
+[node name="btnLevel3" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+script = ExtResource("3_prmn8")
+level = "res://game/level/level3/level_3.tscn"
+
+[connection signal="pressed" from="btnKembali" to="." method="_on_btn_kembali_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/btnLevel1" to="VBoxContainer/HBoxContainer/btnLevel1" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/btnLevel2" to="VBoxContainer/HBoxContainer/btnLevel2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/btnLevel3" to="VBoxContainer/HBoxContainer/btnLevel3" method="_on_pressed"]

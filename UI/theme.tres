@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://mc1vfdpl1w2e"]
+
+[ext_resource type="FontFile" uid="uid://clx87t2i03u05" path="res://kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="1_dmy4b"]
+[ext_resource type="Texture2D" uid="uid://ct8as42nptq1x" path="res://kenney_ui-pack/PNG/Red/Double/button_rectangle_depth_gradient.png" id="2_wm4s2"]
+[ext_resource type="Texture2D" uid="uid://bs3rqlg1idlvg" path="res://kenney_ui-pack/PNG/Red/Double/button_rectangle_depth_gloss.png" id="3_082j6"]
+[ext_resource type="Texture2D" uid="uid://k2adr7dgynmg" path="res://kenney_ui-pack/PNG/Red/Double/button_rectangle_depth_flat.png" id="4_bxawl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v5abm"]
+texture = ExtResource("2_wm4s2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b0n2u"]
+texture = ExtResource("3_082j6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kn1jc"]
+texture = ExtResource("4_bxawl")
+
+[resource]
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_dmy4b")
+Button/styles/hover = SubResource("StyleBoxTexture_v5abm")
+Button/styles/normal = SubResource("StyleBoxTexture_b0n2u")
+Button/styles/pressed = SubResource("StyleBoxTexture_kn1jc")
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_dmy4b")

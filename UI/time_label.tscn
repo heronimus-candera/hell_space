@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl15chfyd74t1"]
+
+[ext_resource type="FontFile" uid="uid://clx87t2i03u05" path="res://kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="1_s2wnx"]
+[ext_resource type="Script" path="res://UI/timeLabel.gd" id="2_tpkop"]
+
+[node name="timeLabel" type="Label"]
+process_mode = 1
+offset_right = 108.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_s2wnx")
+theme_override_font_sizes/font_size = 25
+text = "00000000"
+script = ExtResource("2_tpkop")

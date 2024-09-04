@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3lnisedugxj0"]
+
+[ext_resource type="FontFile" uid="uid://clx87t2i03u05" path="res://kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="1_afqv0"]
+[ext_resource type="Texture2D" uid="uid://cpkpyufl0ph4m" path="res://UI/titlePlane.png" id="2_ekn5j"]
+
+[node name="nyawa" type="Label"]
+offset_right = 27.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("1_afqv0")
+theme_override_font_sizes/font_size = 25
+text = " 3
+"
+
+[node name="TitlePlane" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-24, 16)
+texture = ExtResource("2_ekn5j")
